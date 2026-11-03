@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Turismiinfo Saaremaal | Saaremaa Turismiinfokeskus</title>
+  <meta name="description" content="Küsi kohalikult nõu Saaremaa avastamiseks. Tasuta kaardid, matkaradade soovitused ja abi reisiplaanidega. Ootame sind Kuressaare raekojas!">
+  <meta name="theme-color" content="#244b3b">
+  <!--
+    Enne avaldamist:
+    1. Lisa täpsed lahtiolekuajad.
+    2. Lisa kinnitatud broneerimislink plokki #broneeri.
+    3. Lisa e-post, kui see on kinnitatud.
+    4. Lisa päris arvustused ja nende allikad.
+    5. Täida andmekaitsetingimused.
+    6. Lisa õigustega fotod allpool kirjeldatud kohtadesse.
+    Skeemis puuduvad teadlikult kontrollimata lahtiolekuajad,
+    e-post, arvustused ja veebiaadress.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Saaremaa Turismiinfokeskus",
+    "description": "Tasuta turismiinfo ja personaalne reisinõustamine Kuressaare raekojas.",
+    "telephone": "+3724533120",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Tallinna 2",
+      "addressLocality": "Kuressaare",
+      "addressCountry": "EE"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --green: #244b3b; --green-dark: #17372a; --green-light: #e7eee5;
+      --cream: #f7f5ef; --white: #ffffff; --ink: #202e27;
+      --muted: #526158; --line: #cbd4c9; --accent: #eadcae;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-heading: Georgia, "Times New Roman", serif;
+      --radius: 18px; --radius-small: 10px; --width: 1160px;
+      --shadow: 0 14px 40px rgb(23 55 42 / 7%);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font: 1rem/1.7 var(--font-body); overflow-wrap: break-word; }
+    [hidden] { display: none !important; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--green); text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
+    .button:focus-visible, .dark a:focus-visible { outline: 3px solid var(--accent); box-shadow: 0 0 0 7px var(--green-dark); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.15; font-weight: 400; text-wrap: balance; }
+    h1, h2 { font-family: var(--font-heading); }
+    h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -0.045em; margin-bottom: 24px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.035em; margin-bottom: 22px; }
+    h3 { font-size: 1.35rem; font-weight: 650; margin-bottom: 14px; }
+    p { margin-bottom: 18px; }
+    .container { width: min(var(--width), calc(100% - 40px)); margin-inline: auto; }
+    .section { padding-block: 64px; }
+    .section-intro { max-width: 690px; margin-bottom: 32px; }
+    .eyebrow { display: block; margin-bottom: 16px; color: var(--green); font-size: .78rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .small { font-size: .9rem; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 48px; padding: 13px 22px; border: 1px solid var(--green); border-radius: 7px; background: var(--green); color: var(--white); font-weight: 650; line-height: 1.35; text-align: center; text-decoration: none; cursor: pointer; }
+    .button:hover { background: var(--green-dark); border-color: var(--green-dark); }
+    .button.secondary { color: var(--green); background: transparent; }
+    .button.secondary:hover { background: var(--green-light); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .skip-link { position: fixed; z-index: 100; left: 16px; top: -100px; padding: 12px 20px; background: var(--white); color: var(--ink); }
+    .skip-link:focus { top: 16px; }
+    /* Päis */
+    .site-header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--line); background: var(--cream); }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; min-height: 92px; gap: 16px; padding-block: 12px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--green); text-decoration: none; }
+    .brand img { width: 74px; height: 66px; object-fit: contain; }
+    .brand-name { max-width: 170px; font-size: .92rem; font-weight: 750; line-height: 1.25; }
+    .menu-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 7px; color: var(--green); background: transparent; cursor: pointer; }
+    .menu-icon { display: grid; gap: 4px; width: 18px; }
+    .menu-icon span { display: block; height: 2px; background: currentColor; }
+    .nav-links { display: grid; gap: 4px; padding-bottom: 16px; }
+    .nav-links a { padding: 10px 12px; color: var(--green); font-weight: 600; text-decoration: none; border-radius: 6px; }
+    .nav-links a:hover { background: var(--green-light); }
+    .nav-links .nav-book { color: var(--white); background: var(--green); text-align: center; }
+    /* Avaplokk */
+    .hero { padding-block: 54px 36px; }
+    .hero-grid { display: grid; gap: 36px; align-items: center; }
+    .hero-copy { max-width: 680px; }
+    .hero-copy > p { max-width: 590px; font-size: 1.08rem; }
+    .hero-note { margin-top: 22px; color: var(--muted); font-size: .9rem; }
+    .welcome-panel { position: relative; overflow: hidden; padding: 32px; border-radius: var(--radius); background: var(--green); color: var(--white); box-shadow: var(--shadow); }
+    .welcome-panel::after { content: ""; display: block; height: 64px; margin: 32px -50px -52px; border: 1px solid rgb(255 255 255 / 35%); border-radius: 50%; transform: rotate(-8deg); }
+    .welcome-panel .eyebrow { color: var(--accent); }
+    .welcome-panel h2 { font-size: 2.3rem; }
+    .welcome-panel a { color: var(--white); }
+    .welcome-panel dl { margin: 24px 0 0; }
+    .welcome-panel dt { margin-top: 18px; color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+    .welcome-panel dd { margin: 4px 0 0; }
+    .facts { display: grid; gap: 16px; padding-block: 26px; border-block: 1px solid var(--line); }
+    .facts p { margin: 0; }
+    .facts strong { display: block; color: var(--green); font-size: 1.1rem; }
+    /* Teenuste kaardid */
+    .cards { display: grid; gap: 18px; }
+    .card { display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+    .card-number { margin-bottom: 26px; color: var(--muted); font-size: .8rem; letter-spacing: .12em; }
+    .card p { color: var(--muted); }
+    .card a { display: inline-flex; align-items: center; min-height: 44px; margin-top: auto; font-weight: 700; }
+    .soft { background: var(--green-light); }
+    .split { display: grid; gap: 34px; align-items: start; }
+    .story-note { padding: 28px; border-left: 3px solid var(--green); background: var(--cream); }
+    .story-note p:last-child { margin-bottom: 0; }
+    .price-list { display: grid; gap: 0; margin: 20px 0 0; }
+    .price-row { display: flex; justify-content: space-between; gap: 20px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+    .price-row dt, .price-row dd { margin: 0; }
+    .price-row dd { color: var(--green); font-weight: 700; white-space: nowrap; }
+    /* KKK */
+    .faq { max-width: 880px; }
+    details { border-bottom: 1px solid var(--line); padding-block: 6px; }
+    summary { position: relative; min-height: 58px; padding: 17px 38px 17px 0; color: var(--green); font-weight: 650; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 4px; top: 13px; font-size: 1.5rem; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 760px; padding-right: 22px; color: var(--muted); }
+    /* Täitmist vajav sisu */
+    .editor-note { padding: 18px 22px; border: 1px dashed var(--muted); border-radius: var(--radius-small); color: var(--muted); background: var(--white); }
+    .location-grid { display: grid; gap: 20px; }
+    .info-box { padding: 28px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); }
+    .info-box p:last-child { margin-bottom: 0; }
+    address { font-style: normal; }
+    .dark { color: var(--white); background: var(--green); }
+    .dark .eyebrow { color: var(--accent); }
+    .dark a { color: var(--white); }
+    .dark .button { color: var(--green-dark); background: var(--accent); border-color: var(--accent); }
+    .dark .button:hover { background: var(--white); }
+    .contact-phone { display: inline-block; font-family: var(--font-heading); font-size: clamp(1.8rem, 6vw, 3rem); line-height: 1.3; }
+    .footer { padding-block: 28px 104px; color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
+    .footer p { margin: 0; }
+    .privacy { max-width: 880px; }
+    .privacy summary { color: var(--ink); font-weight: 500; }
+    .mobile-booking { position: fixed; z-index: 40; bottom: 0; left: 0; right: 0; padding: 12px 20px; padding-bottom: max(12px, env(safe-area-inset-bottom)); background: var(--cream); border-top: 1px solid var(--line); }
+    .mobile-booking .button { width: 100%; }
+    @media (min-width: 620px) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .location-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 960px) {
+      .section { padding-block: 88px; }
+      .hero { padding-block: 78px 48px; }
+      .hero-grid { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 64px; }
+      .split { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 72px; }
+      .header-layout { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+      .header-inner { flex-shrink: 0; }
+      .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 4px; padding: 0; }
+      .menu-toggle { display: none; }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .mobile-booking { display: none; }
+      .footer { padding-bottom: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .site-header { position: static; }
+      .menu-toggle, .mobile-booking { display: none; }
+      .section { padding-block: 24px; }
+      .card, .info-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Liigu põhisisu juurde</a>
+  <header class="site-header">
+    <div class="container header-layout">
+      <div class="header-inner">
+        <a class="brand" href="#algus" aria-label="Saaremaa Turismiinfokeskus – avaleht">
+          <img src="turismiinfokeskus_logo_vertikaal_roheline_1.jpg" alt="" width="148" height="132" loading="lazy">
+          <span class="brand-name">Saaremaa<br>Turismiinfokeskus</span>
+        </a>
+        <!-- Ilma JavaScriptita jäävad menüülingid nähtavaks. -->
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Ava peamenüü" aria-controls="main-navigation" aria-expanded="false" hidden>
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menüü
+        </button>
+      </div>
+      <nav id="main-navigation" class="nav-links" aria-label="Peamenüü">
+        <a href="#teenused">Kuidas aitame</a>
+        <a href="#meie-lugu">Meie lugu</a>
+        <a href="#kkk">Küsimused</a>
+        <a href="#asukoht">Tule külla</a>
+        <a class="nav-book" href="#broneeri">Broneeri</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="algus" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Kohalik inimene. Head nõuanded.</span>
+          <h1 id="hero-title">Turismiinfo Saaremaal – küsi nõu kohalikult</h1>
+          <p>Turismiinfo Saaremaal on sulle tasuta kättesaadav Kuressaare raekojas. Aitame leida vastuseid saare külastamisel tekkivatele küsimustele.</p>
+          <p>Otsid matkarada, majutust või võimalust bussiga Sõrve sõita? Astu läbi ja räägime. Oled meie juurde oodatud.</p>
+          <div class="actions">
+            <a class="button" href="#teenused">Leia oma reisiks vajalik</a>
+            <a class="button secondary" href="tel:+3724533120">Helista meile</a>
+          </div>
+          <p class="hero-note">Tasuta nõustamine ja kaardid · Kuressaare raekojas</p>
+        </div>
+        <aside class="welcome-panel dark" aria-labelledby="welcome-title">
+          <span class="eyebrow">Alusta siit</span>
+          <h2 id="welcome-title">Astu läbi.<br>Leiame koos vastuse.</h2>
+          <p>Mõnikord on puudu vaid üks bussiväljumine. Teinekord alles esimene puhkuseidee.</p>
+          <dl>
+            <dt>Leiad meid</dt><dd>Tallinna 2, Kuressaare raekoda</dd>
+            <dt>Küsi telefoni teel</dt><dd><a href="tel:+3724533120">+372 453 3120</a></dd>
+            <dt>Suhtleme</dt><dd>Eesti, inglise, vene ja soome keeles</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+    <div class="container">
+      <div class="facts" aria-label="Hea teada">
+        <p><strong>Tasuta</strong>turismiinfo ja kaardid</p>
+        <p><strong>Kohalikud teadmised</strong>ja personaalsed soovitused</p>
+        <p><strong>Kõigile oodatud külalistele</strong>ja kohalikele saarlastele</p>
+      </div>
+    </div>
+    <section class="section" id="teenused" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Sinu järgmine peatus</span>
+          <h2 id="services-title">Turismiinfo Saaremaal sinu reisiplaanide järgi</h2>
+          <p>Räägi, mis sind huvitab ja kellega reisid. Aitame sul võimaluste seas valida ning järgmised sammud läbi mõelda.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-number" aria-hidden="true">01 / AVASTA</span>
+            <h3>Mida teha Saaremaal?</h3>
+            <p>Küsi nõu vaatamisväärsuste ja muuseumide kohta. Tutvustame näiteks Saaremaa muuseumi, Muhu muuseumi ja Mihkli talumuuseumi.</p>
+            <a href="#kontakt">Küsi soovitust →</a>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">02 / LOODUSESSE</span>
+            <h3>Matkarajad ja rahulikud retked</h3>
+            <p>Anname kaasa matkaradade kaardi ja aitame leida sinu plaaniga sobiva raja. Küsi ka jalgrattarendi kohta.</p>
+            <a href="#kaardid">Vaata, kuidas aitame →</a>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">03 / LIIKUMA</span>
+            <h3>Bussiga saart avastama</h3>
+            <p>Aitame ühenduste kohta infot leida. Sõrve sõiduks saame anda prinditud bussigraafiku. Väljumine tuleb kontrollida reisipäeva järgi.</p>
+            <a href="#kontakt">Küsi liikumisnõu →</a>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">04 / PUHKAMA</span>
+            <h3>Majutus ja merereisid</h3>
+            <p>Aitame leida majutusinfot ja viime sind kokku merereisi korraldajaga. Hinna ja saadavuse kinnitab teenusepakkuja.</p>
+            <a href="#broneeri">Küsi broneerimisabi →</a>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">05 / KAASA</span>
+            <h3>Kaardid ja trükised</h3>
+            <p>Saaremaa ja Kuressaare kaart ning reklaamtrükised on tasuta. Võta need kaasa saarel liikumiseks või Saaremaa tutvustamiseks mujal.</p>
+            <a href="#kaardid">Leia kaardid →</a>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">06 / MÄLESTUSEKS</span>
+            <h3>Väike meenutus saarelt</h3>
+            <p>Infokeskusest leiad postkaarte, magneteid ja reisiraamatuid.</p>
+            <dl class="price-list" style="width:100%">
+              <div class="price-row"><dt>Postkaart</dt><dd>1 €</dd></div>
+              <div class="price-row"><dt>Magnet</dt><dd>3 €</dd></div>
+              <div class="price-row"><dt>Reisiraamat</dt><dd>alates 3 €</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section soft" id="meie-lugu" aria-labelledby="story-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Meie lugu</span>
+          <h2 id="story-title">Kõik vastused ei ela internetis.</h2>
+          <p>Meie tugevus on kohtumine kohaliku inimesega. Kuulame sinu küsimust, otsime infot oma andmebaasist ja kasutame vajadusel kohalikke kontakte.</p>
+          <p>Meilt on küsitud abi ka suguvõsa juurte, kaugete sugulaste ja haudade asukohtade leidmisel. Võimaluste piires aitame edasi uurida.</p>
+          <p>Oodatud on ka kohalik saarlane, kes otsib ideid oma külaliste võõrustamiseks.</p>
+        </div>
+        <div class="story-note">
+          <h3>Üks küsimus, üks kohalik kontakt</h3>
+          <p>Hiljuti otsiti ühe tuntud Saaremaa inimese hauda, mida kalmistute registris veel ei olnud. Kohalik kontakt oskas asukohta kirjeldada.</p>
+          <p>Iga otsing ei pruugi vastust anda, kuid mõnikord aitab edasi just kellegi isiklik teadmine.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="kaardid" aria-labelledby="maps-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Kaardid kätte ja teele</span>
+          <h2 id="maps-title">Võta saare avastamiseks kaart kaasa.</h2>
+          <p>Saaremaa ja Kuressaare kaardid ning tutvustavad trükised ootavad sind infokeskuses. Info küsimine ja reklaamtrükised on tasuta.</p>
+          <p>Saaremaa matkarajad või bussiga liikumine? Küsi nõu ning aitame sobivat infot leida.</p>
+          <a class="button secondary" href="#asukoht">Vaata, kuidas tulla</a>
+        </div>
+        <div class="info-box">
+          <h3>Üks kaart, mitu head mõtet</h3>
+          <p>Tule oma reisiplaaniga või küsi esimesi soovitusi. Aitame arutada, milliseid kohti külastada ja kuidas nendeni jõuda.</p>
+          <!--
+            TÄIDA: lisa siia kinnitatud digitrükiste lingid.
+            Näiteks:
+            <a href="images/saaremaa-kaart.pdf" type="application/pdf">
+              Ava Saaremaa kaart (PDF)
+            </a>
+            Lisa faili suurus ja keel, kui need on teada.
+          -->
+        </div>
+      </div>
+    </section>
+    <section class="section soft" id="kkk" aria-labelledby="faq-title">
+      <div class="container faq">
+        <span class="eyebrow">Hea teada</span>
+        <h2 id="faq-title">Külalised küsivad</h2>
+        <details>
+          <summary>Kust saan Saaremaa ja Kuressaare kaardi?</summary>
+          <p>Tule infokeskusesse Kuressaare raekojas, Tallinna 2. Kaardid ja reklaamtrükised saad tasuta kaasa.</p>
+        </details>
+        <details>
+          <summary>Kust saab Kuressaares jalgratast rentida?</summary>
+          <p>Aitame leida jalgrattarendi pakkuja ja suuname sind tema juurde. Rendihinna ja tingimused saad täpsustada pakkujaga.</p>
+        </details>
+        <details>
+          <summary>Kuidas saada Kuressaarest Sõrve bussiga?</summary>
+          <p>Aitame leida sobiva ühenduse ja saame anda kaasa prinditud bussigraafiku. Küsi infot oma reisikuupäeva kohta.</p>
+        </details>
+        <details>
+          <summary>Milliseid matkaradu soovitate?</summary>
+          <p>Räägi oma plaanist ja küsi matkaradade kaarti. Aitame leida sinu huvidega sobivaid võimalusi looduses liikumiseks.</p>
+        </details>
+        <details>
+          <summary>Kas aitate majutust broneerida?</summary>
+          <p>Suuname sind otse majutuspakkuja juurde. Vajadusel aitame ka broneeringu tegemisel. Täpse hinna ja saadavuse kinnitab teenusepakkuja.</p>
+        </details>
+        <details>
+          <summary>Kas aitate suguvõsa juuri otsida?</summary>
+          <p>Võimaluste piires aitame infot otsida ja kohalikke kontakte leida. Otsingu tulemust ei saa ette lubada.</p>
+        </details>
+        <details>
+          <summary>Kas ratastooli või lapsevankriga pääseb sisse?</summary>
+          <p>Ratastooliga sissepääs kahjuks puudub. Lapsevankrit aitame vajadusel tõsta. Infot saad küsida ka telefonil <a href="tel:+3724533120">+372 453 3120</a>.</p>
+        </details>
+        <details>
+          <summary>Kas infokeskusest saab suveniire osta?</summary>
+          <p>Jah. Postkaardid maksavad 1 €, magnetid 3 € ja reisiraamatute hinnad algavad 3 eurost.</p>
+        </details>
+      </div>
+    </section>
+    <section class="section" id="arvustused" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Külaliste kogemused</span>
+          <h2 id="reviews-title">Kuidas meil läks?</h2>
+          <p>Meile on oluline, et tunneksid end oodatuna ja saaksid oma küsimustele abi.</p>
+        </div>
+        <!-- Ära asenda seda väljamõeldud tsitaatide või hinnetega. -->
+        <div class="editor-note">[TÄIDA: lisa päris külaliste arvustused koos allikaviidete ja avaldamiseks sobivate autorinimedega ning link infokeskuse Google’i arvustustele.]</div>
+      </div>
+    </section>
+    <section class="section soft" id="asukoht" aria-labelledby="location-title">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Kohtume kesklinnas</span>
+          <h2 id="location-title">Tule Kuressaare raekotta.</h2>
+          <p>Meie aadress on Tallinna 2, Kuressaare. Allpool leiad info parkimise ja sissepääsu kohta.</p>
+        </div>
+        <div class="location-grid">
+          <div class="info-box">
+            <h3>Asukoht</h3>
+            <address>Saaremaa Turismiinfokeskus<br>Kuressaare raekoda<br>Tallinna 2, Kuressaare</address>
+            <div class="actions">
+              <a class="button secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Tallinna%202%2C%20Kuressaare" target="_blank" rel="noopener noreferrer">Ava asukoht kaardil <span class="small">(uus vaheleht)</span></a>
+            </div>
+          </div>
+          <div class="info-box">
+            <h3>Lahtiolekuajad</h3>
+            <p><strong>Juuni lõpust augusti keskpaigani:</strong> E–L<br><strong>Muul ajal:</strong> E–R</p>
+            <p>Täpseid kellaaegu küsi telefonil <a href="tel:+3724533120">+372 453 3120</a>.</p>
+            <!-- TÄIDA: kellaajad, täpsed kuupäevad ja pühade erandid. -->
+          </div>
+          <div class="info-box">
+            <h3>Autoga tulles</h3>
+            <p>Kohe maja juures parkida ei saa. Soovitame Uue tänava parklat, mis asub Uus tänav 20 maja vastas.</p>
+            <p>Parklast on infokeskuseni umbes kahe minuti jalutuskäik.</p>
+          </div>
+          <div class="info-box">
+            <h3>Sissepääs</h3>
+            <p>Ratastooliga sissepääs kahjuks puudub. Lapsevankrit aitame vajadusel tõsta.</p>
+            <p>Kui kohale tulla ei saa, helista. Nõustame eesti, inglise, vene ja soome keeles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="broneeri" aria-labelledby="booking-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Plaanist järgmise sammuni</span>
+          <h2 id="booking-title">Leia oma puhkuseks sobiv teenus.</h2>
+          <p>Aitame sul leida teenusepakkuja, kellelt saad küsida täpset hinda ja saadavust ning teha broneeringu.</p>
+          <p>Suuname sind otse pakkuja juurde. Vajadusel aitame ka broneeringu tegemisel.</p>
+        </div>
+        <div class="info-box">
+          <h3>Vajad broneerimisel abi?</h3>
+          <p>Helista ja räägi, millist teenust otsid. Aitame võimalused läbi mõelda.</p>
+          <a class="button" href="tel:+3724533120">Küsi broneerimisabi</a>
+          <!--
+            TÄIDA: kui kinnitatud broneerimislink on olemas,
+            lisa siia päris link, näiteks:
+            <a class="button" href="SIIN_PEAB_OLEMA_KINNITATUD_URL" target="_blank" rel="noopener noreferrer">
+              Broneeri teenusepakkuja juures
+              <span class="small">(uus vaheleht)</span>
+            </a>
+            Seejärel võid suunata päise ja mobiili
+            broneerimisnupu samale URL-ile.
+          -->
+        </div>
+      </div>
+    </section>
+    <section class="section dark" id="kontakt" aria-labelledby="contact-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Küsi julgelt</span>
+          <h2 id="contact-title">Hea puhkuseplaan võib alata vestlusest.</h2>
+          <p>Oled Saaremaal esimest korda või otsid kohaliku saarlasena oma külalistele ideid? Oleme sulle abiks.</p>
+        </div>
+        <div>
+          <p class="small">Helista Saaremaa Turismiinfokeskusesse</p>
+          <a class="contact-phone" href="tel:+3724533120">+372 453 3120</a>
+          <p style="margin-top:20px">Tallinna 2, Kuressaare raekoda<br>Eesti · English · Русский · Suomi</p>
+          <!--
+            TÄIDA: lisa kinnitatud e-post siia.
+            Ära kasuta näidisaadressi info@...
+            ega lisa töötlemata kontaktivormi.
+          -->
+        </div>
+      </div>
+    </section>
+    <section class="container privacy" aria-label="Andmekaitse">
+      <details id="andmekaitse">
+        <summary>Andmekaitsetingimused</summary>
+        <p>Selle lehe kood ei sisalda jälgimis- ega reklaamikoode. Kaardilingi avamisel liigud Google Mapsi keskkonda, kus kehtivad selle teenuse tingimused.</p>
+        <p>[TÄIDA: vastutava töötleja nimi ja kontakt, veebimajutuse logide töötlemine, säilitustähtajad, telefonipäringute andmekäitlus ning asjakohased andmesubjekti õigused ja kontaktid.]</p>
+      </details>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Saaremaa Turismiinfokeskus · Tallinna 2, Kuressaare</p>
+      <a href="#andmekaitse" id="privacy-link">Andmekaitsetingimused</a>
+      <a href="#algus">Tagasi üles ↑</a>
+    </div>
+  </footer>
+  <div class="mobile-booking" aria-label="Kiire juurdepääs broneerimisabile">
+    <a class="button" href="#broneeri">Broneeri · küsi abi</a>
+  </div>
+  <script>
+    (() => {
+      const toggle = document.getElementById("menu-toggle");
+      const navigation = document.getElementById("main-navigation");
+      const desktop = window.matchMedia("(min-width: 960px)");
+      function setMenu(open) {
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Sulge peamenüü" : "Ava peamenüü");
+        navigation.hidden = !desktop.matches && !open;
+      }
+      function updateLayout() {
+        const focusWasInsideMenu = navigation.contains(document.activeElement);
+        toggle.hidden = desktop.matches;
+        setMenu(false);
+        if (!desktop.matches && focusWasInsideMenu) { toggle.focus(); }
+      }
+      toggle.addEventListener("click", () => {
+        setMenu(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      navigation.addEventListener("click", event => {
+        if (event.target.closest("a") && !desktop.matches) {
+          setMenu(false);
+          toggle.focus();
+        }
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !desktop.matches && toggle.getAttribute("aria-expanded") === "true") {
+          setMenu(false);
+          toggle.focus();
+        }
+      });
+      if (desktop.addEventListener) { desktop.addEventListener("change", updateLayout); }
+      else { desktop.addListener(updateLayout); }
+      updateLayout();
+      const privacy = document.getElementById("andmekaitse");
+      const privacyLink = document.getElementById("privacy-link");
+      function openPrivacy() { privacy.open = true; }
+      privacyLink.addEventListener("click", openPrivacy);
+      if (window.location.hash === "#andmekaitse") { openPrivacy(); }
+      window.addEventListener("hashchange", () => {
+        if (window.location.hash === "#andmekaitse") { openPrivacy(); }
+      });
+    })();
+  </script>
+</body>
+</html>
+
